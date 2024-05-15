@@ -7,7 +7,7 @@ import { type Artist } from "@/types";
 import clsx from "clsx";
 
 const typeList = ["全部", "男", "女", "组合"];
-const areaList = ["全部", "内地", "港台", "日本", "欧美"];
+const areaList = ["全部", "内地", "港台", "日韩", "欧美"];
 
 const SingerFilter = () => {
   const [type, setType] = useState("全部");

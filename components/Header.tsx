@@ -114,7 +114,7 @@ const Header = () => {
       <div className="w-200 flex flex-row justify-between gap-x-8 items-center">
         {titles.map((item, key) => {
           return (
-            <div className="relative">
+            <div key={key} className="relative">
               <a
                 key={key}
                 className={clsx("hover:text-primary", {

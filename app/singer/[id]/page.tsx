@@ -7,7 +7,7 @@ import { get } from "@/lib/requests";
 import { format } from "date-fns";
 import Link from "next/link";
 import { MapPinned, UsersRound } from "lucide-react";
-
+//左侧头像组件
 const ArtistInfo = ({ data }: { data?: Artist }) => (
   <div>
     <div className="w-2/3 mx-auto flex flex-col gap-y-2 h-full justify-center">
@@ -21,12 +21,15 @@ const ArtistInfo = ({ data }: { data?: Artist }) => (
           <div className="flex gap-x-4">
             <div className="flex gap-x-2">
               <UsersRound />
-              <p>女</p>
+              <p>{data?.type}</p>
             </div>
             <div className="flex gap-x-2">
               <MapPinned />
-              <p>中国</p>
+              <p>{data?.location}</p>
             </div>
+          </div>
+          <div className="w-[210px]">
+            <p>{data?.bio}</p>
           </div>
         </div>
       </div>
