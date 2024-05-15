@@ -5,6 +5,8 @@ import ReactPlayer from "react-player";
 import PlayContext from "@/context/PlayContext";
 import { formatDuration } from "@/lib/utils";
 
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
+
 const Player = () => {
   const [playing, setPlaying] = React.useState(false);
   const playerRef = React.createRef<ReactPlayer>();
@@ -51,7 +53,7 @@ const Player = () => {
       <div className="w-2/3 flex items-center gap-y-4">
         <div className="flex items-center gap-x-4">
           <img
-            src={playContext?.currentPlaying?.album.coverImage}
+            src={serverUrl + playContext?.currentPlaying?.album.coverImage}
             className="w-20 h-20 bg-primary"
           />
           <div>
@@ -64,7 +66,7 @@ const Player = () => {
         <div className="flex flex-col grow items-center">
           <ReactPlayer
             className="hidden"
-            url={playContext?.currentPlaying?.filePath}
+            url={serverUrl + playContext?.currentPlaying?.filePath}
             ref={playerRef}
             playing={playing}
             onProgress={(progress) => {
