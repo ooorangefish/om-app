@@ -41,6 +41,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 const titles = [
   { name: "发现音乐", link: "/" },
@@ -115,15 +116,14 @@ const Header = () => {
         {titles.map((item, key) => {
           return (
             <div key={key} className="relative">
-              <a
-                key={key}
+              <Link
                 className={clsx("hover:text-primary", {
                   "text-primary": pathname === item.link,
                 })}
                 href={item.link}
               >
                 {item.name}
-              </a>
+              </Link>
               {pathname === item.link && (
                 <p className="absolute w-full h-0.5 bg-primary -bottom-1 left-0"></p>
               )}
