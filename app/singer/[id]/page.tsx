@@ -7,7 +7,7 @@ import { get } from "@/lib/requests";
 import { format } from "date-fns";
 import Link from "next/link";
 import { MapPinned, UsersRound } from "lucide-react";
-const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || "";
 
 //左侧头像组件
 const ArtistInfo = ({ data }: { data?: Artist }) => (
@@ -15,7 +15,7 @@ const ArtistInfo = ({ data }: { data?: Artist }) => (
     <div className="w-2/3 mx-auto flex flex-col gap-y-2 h-full justify-center">
       <div className="flex gap-4 items-center flex-col">
         <Avatar className="w-[200px] h-[200px]">
-          <AvatarImage src={data?.profileImage} />
+          <AvatarImage src={serverUrl + data?.profileImage} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div className="flex flex-col items-center gap-y-4">

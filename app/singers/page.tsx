@@ -5,6 +5,7 @@ import Link from "next/link";
 import { get } from "@/lib/requests";
 import { type Artist } from "@/types";
 import clsx from "clsx";
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || "";
 
 const typeList = ["全部", "男", "女", "组合"];
 const areaList = ["全部", "内地", "港台", "日韩", "欧美"];
@@ -75,7 +76,7 @@ const SingerFilter = () => {
                   <Avatar className="w-[100px] h-[100px]">
                     <AvatarImage
                       className="object-cover"
-                      src={item.profileImage}
+                      src={serverUrl + item.profileImage}
                     />
                     <AvatarFallback>{item.name}</AvatarFallback>
                   </Avatar>
