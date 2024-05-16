@@ -4,6 +4,7 @@ import Tracklist from "@/components/TrackList";
 import { type Song, type Album } from "@/types";
 import { get } from "@/lib/requests";
 import AuthContext from "@/context/AuthContext";
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
 
 const Album = ({ params }: { params: { id: string } }) => {
   const [album, setAlbum] = useState<Album>();
@@ -30,7 +31,7 @@ const Album = ({ params }: { params: { id: string } }) => {
         data={songs}
         type="专辑"
         title={album.title}
-        coverImage={album.coverImage}
+        coverImage={serverUrl + album.coverImage}
         creator={{
           name: album.artist.name,
           profileImage: album.artist.profileImage,

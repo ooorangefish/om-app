@@ -7,6 +7,8 @@ import { get } from "@/lib/requests";
 import { format } from "date-fns";
 import Link from "next/link";
 import { MapPinned, UsersRound } from "lucide-react";
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
+
 //左侧头像组件
 const ArtistInfo = ({ data }: { data?: Artist }) => (
   <div>
@@ -74,7 +76,7 @@ const SingerPage = ({ params }: { params: { id: string } }) => {
               <Link key={album.id} href={`/album/${album.id}`}>
                 <div className="flex gap-4 items-end group">
                   <img
-                    src={album.coverImage}
+                    src={serverUrl + album.coverImage}
                     className="w-24 h-24 object-cover"
                   />
                   <div>

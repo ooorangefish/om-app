@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import { type Album } from "@/types";
 import { get } from "@/lib/requests";
 import Link from "next/link";
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
 
 const NewSongs = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
@@ -38,7 +39,7 @@ const NewSongs = () => {
                 <Link href={"/album/" + item.id}>
                   <div className="p-1">
                     <Card className="border-none shadow-none">
-                      <img src={item.coverImage} />
+                      <img src={serverUrl + item.coverImage} />
                       <p className="mt-2">{item.title}</p>
                       <p className="text-gray-400 text-sm">
                         {item.artist.name}
