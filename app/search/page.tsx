@@ -19,6 +19,8 @@ const singerSong = [
   { name: "爱是昂贵的", singer: "声音玩具", album: "劳动之余", time: "3:05" },
 ];
 
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || "";
+
 const SearchNew = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
@@ -57,7 +59,7 @@ const SearchNew = () => {
                     <Avatar className="w-[100px] h-[100px]">
                       <AvatarImage
                         className="object-cover"
-                        src={item.profileImage}
+                        src={serverUrl + item.profileImage}
                       />
                       <AvatarFallback>{item.name}</AvatarFallback>
                     </Avatar>
@@ -91,7 +93,7 @@ const SearchNew = () => {
               <Link key={album.id} href={`/album/${album.id}`}>
                 <div className="flex gap-4 items-end group">
                   <img
-                    src={album.coverImage}
+                    src={serverUrl + album.coverImage}
                     className="w-24 h-24 object-cover"
                   />
                   <div>
